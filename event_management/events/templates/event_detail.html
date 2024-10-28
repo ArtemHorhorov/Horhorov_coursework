@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>{{ event.name }}</title> 
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+</head> 
+<body> 
+    <h1>{{ event.name }}</h1> 
+
+    <h2>Локации:</h2> 
+    <ul> 
+        {% for location in locations %} 
+            <li> 
+                {{ location.title }} 
+                <form method="post" style="display:inline;"> 
+                    {% csrf_token %} 
+                    <input type="hidden" name="location_id" value="{{ location.id }}"> 
+                    <button type="submit" class="button" name="delete_location">Удалить</button> 
+                </form> 
+                <form method="post" style="display:inline;"> 
+                    {% csrf_token %} 
+                    <input type="hidden" name="location_id" value="{{ location.id }}"> 
+                    <input type="text" name="title" value="{{ location.title }}"> 
+                    <button type="submit" name="edit_location" class="button">Редактировать</button> 
+                </form> 
+            </li> 
+            <a href="{% url 'location_comments' location.id %}" class="button1">Смотреть комментарии</a> 
+        {% empty %} 
+            <li>Нет локаций для этого мероприятия.</li> 
+        {% endfor %} 
+    </ul> 
+
+    <h2>Добавить локацию:</h2> 
+    <form method="post"> 
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        <button type="submit" name="add_location" class="button">Добавить</button> 
+    </form> 
+</body> 
+</html>

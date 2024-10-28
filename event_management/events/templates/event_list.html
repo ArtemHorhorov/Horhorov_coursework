@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список мероприятий</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Список мероприятий</h1>
+    <a href="{% url 'add_event' %}">Добавить мероприятие</a>
+    <ul>
+        {% for event in events %}
+        <li>
+            {{ event.name }} - {{ event.description }}
+            <a href="{% url 'edit_event' event.pk %}" class="button">Редактировать</a>
+            <a href="{% url 'delete_event' event.pk %}" class="button">Удалить</a>
+            <a href="{% url 'event_detail' event.pk %}" class="button">Смотреть локации</a>
+        </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

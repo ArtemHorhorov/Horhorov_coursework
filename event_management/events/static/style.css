@@ -1,0 +1,60 @@
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  background-color: #e9ecef; 
+  margin: 20px; 
+} 
+
+h1 { 
+  color: #495057; 
+  font-size: 2.5em; 
+  text-align: center; 
+  margin-bottom: 20px; 
+} 
+
+a { 
+  text-decoration: none; 
+  color: #007bff; 
+  transition: color 0.3s; 
+} 
+
+a:hover { 
+  color: #00b3b3; /* Цвет ссылки при наведении */ 
+  text-decoration: underline; 
+} 
+
+ul { 
+  list-style-type: none; 
+  padding: 0; 
+} 
+
+li { 
+  margin: 15px 0; 
+  padding: 15px; 
+  border: 1px solid #ced4da; 
+  border-radius: 8px; 
+  background-color: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточек */
+  transition: transform 0.2s; /* Плавный переход при наведении */
+} 
+
+li:hover { 
+  transform: translateY(-5px); /* Подъем карточек при наведении */
+} 
+
+.button { 
+  display: inline-block; 
+  padding: 12px 20px; 
+  margin: 5px; 
+  font-size: 18px; 
+  color: white; 
+  background-color: #28a745; /* Зеленый цвет фона */ 
+  border: none; 
+  border-radius: 5px; 
+  text-align: center; 
+  transition: background-color 0.3s, transform 0.2s; /* Плавный переход цвета фона и эффекта нажатия */
+} 
+
+.button:hover { 
+  background-color: #218838; /* Темнее зеленый цвет при наведении */ 
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
+} 

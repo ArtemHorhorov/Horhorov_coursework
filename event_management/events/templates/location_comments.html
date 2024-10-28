@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Возможные локации: {{ location.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Комментарии к локации: {{ location.title }}</h1>
+
+    <h2>Добавить комментарий:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="add_comment" class="button">Добавить</button>
+    </form>
+
+    <h2>Существующие комментарии:</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                {{ comment.text }} ({{ comment.created_at }})
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                    <button type="submit" name="delete_comment" class="button">Удалить</button>
+                </form>
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                    <input type="text" name="text" value="{{ comment.text }}">
+                    <button type="submit" name="edit_comment" class="button">Редактировать</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>Нет комментариев.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
