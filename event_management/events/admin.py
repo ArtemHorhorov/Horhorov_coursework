@@ -18,7 +18,7 @@ class LocationAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     raw_id_fields = ('event',)
     filter_horizontal = ('tags',)
-
+ 
 class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email')
     search_fields = ('username', 'email')

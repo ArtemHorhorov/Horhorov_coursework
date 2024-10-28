@@ -45,19 +45,19 @@ def delete_event(request, pk):
 
 def event_detail(request, pk): 
     event = get_object_or_404(Event, pk=pk) 
-    locations = event.locations.all()  # Исправлено на множественное число
+    locations = event.locations.all()
 
     if request.method == 'POST': 
-        if 'add_location' in request.POST:  # Исправлено на 'add_location'
+        if 'add_location' in request.POST:
             form = LocationForm(request.POST) 
             if form.is_valid(): 
                 location = form.save(commit=False) 
-                location.event = event  # Правильное поле
+                location.event = event
                 location.save() 
                 return redirect('event_detail', pk=event.pk) 
         elif 'edit_location' in request.POST: 
             location_id = request.POST.get('location_id') 
-            location = get_object_or_404(Location, id=location_id)  # Исправлено на 'location'
+            location = get_object_or_404(Location, id=location_id)
             form = LocationForm(request.POST, instance=location) 
             if form.is_valid(): 
                 form.save() 
@@ -72,8 +72,8 @@ def event_detail(request, pk):
         form = LocationForm() 
 
     return render(request, 'events/event_detail.html', {
-        'event': event,  # Исправлено на 'event'
-        'locations': locations,  # Исправлено на 'locations'
+        'event': event,
+        'locations': locations,
         'form': form,
     })
 

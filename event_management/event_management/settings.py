@@ -118,7 +118,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "events/static",  # Путь к вашей папке со статическими файлами
+    BASE_DIR / "events/static",  # Путь к папке со статическими файлами
 ]
 
 # Default primary key field type

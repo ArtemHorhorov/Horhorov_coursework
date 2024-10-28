@@ -14,23 +14,7 @@ class Location(models.Model):
     description = models.TextField()
     due_date = models.DateField()
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='locations')
-    tags = models.ManyToManyField('Tag', related_name='locations', blank=True)  # Используем строковое представление
-
-
-# class Event(models.Model): 
-#     name = models.CharField(max_length=100) 
-#     description = models.TextField(default='No description provided')
-#     start_date = models.DateField() 
-#     end_date = models.DateField(default=timezone.now) 
-#     users = models.ManyToManyField(User, related_name='events') 
-
-# class Location(models.Model): 
-#     title = models.CharField(max_length=100) 
-#     description = models.TextField() 
-#     due_date = models.DateField() 
-#     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='locations')  # Убедитесь, что это поле называется 'event'
-#     tags = models.ManyToManyField('Tag', related_name='locations', blank=True)  # Измените 'tasks' на 'locations'
-
+    tags = models.ManyToManyField('Tag', related_name='locations', blank=True)
 
 class Tag(models.Model):
     name = models.CharField(max_length=30)

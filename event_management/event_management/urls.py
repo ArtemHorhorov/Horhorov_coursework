@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path
 from events.views import event_list, add_event, edit_event, delete_event, event_detail, location_comments
 from django.urls import include
-# from .views import project_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
