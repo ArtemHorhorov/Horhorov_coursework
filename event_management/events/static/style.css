@@ -32,13 +32,14 @@ li {
   padding: 15px; 
   border: 1px solid #ced4da; 
   border-radius: 8px; 
-  background-color: #b3f8d4; 
+  background-color: #caedfc; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 } 
 
 li:hover { 
   transform: translateY(-5px);
+  background-color: #72d1fa;
 } 
 
 .button { 
